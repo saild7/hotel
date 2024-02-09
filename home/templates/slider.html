@@ -1,0 +1,127 @@
+	<!-- HOME -->
+	<style type="text/css">
+	.searchform
+	{
+		width:800px;
+		background-color:rgba(0,0,0,0.6);
+		margin:auto;
+		padding:10px 0px 10px 0px;
+		text-align:center;
+		border-radius:15px 15px 0px 0px;
+	}
+
+	.main{
+		background-color:rgba(0,0,0,0.5);
+		width:800px;
+		margin:auto;
+		border-radius:0px 0px 15px 15px;
+	}
+
+	form{
+		padding:10px;
+	}
+
+	.option{
+		position:relative;
+		{% comment %} left:200px; {% endcomment %}
+		{% comment %} top:-37px; {% endcomment %}
+		line-height:40px;
+		width:532px;
+		height:40px;
+		border-radius:6px;
+		padding:0 22px;
+		font-size:16px;
+		color:#555;
+		outline:none;
+		overflow:hidden;
+	}
+
+	button{
+		background-color:#3BAF9F;
+		margin:20px 0px 0px 20px;
+		text-align:center;
+		border-radius:12px;
+		border:2px solid #366473;
+		padding:14px 110px;
+		outline:none;
+		color:#FFFFFF;
+		cursor:pointer;
+		transition:0.25px;
+	}
+
+	button:hover{
+		background-color:#5390F5
+	}
+	</style>
+	<div id="home">
+    {% load static %}
+		<!-- container -->
+		{% comment %} <div class="container "> {% endcomment %}
+			<!-- home wrap -->
+			<div class="home-wrap">
+				<!-- home slick -->
+				<div id="home-slick">
+					<!-- banner -->
+					<div class="banner banner-1">
+						<img src="{%static './img/banner31.jpg'%}" style="height:500px" alt="">
+						<div class="banner-caption text-center">
+											
+											<div class="searchform"><h3 style="color:white">Check For Availability</h3></div>
+											<div class="main">
+                                                <form action="/search/" method="post">
+                                                   {% csrf_token %}
+                                                       
+                                                            <select class="option" name='max_children'>
+                                                                <option value="0" selected>Children</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                        
+
+                                                    
+                                                            <select class="option" name='max_adult'>
+                                                                <option value="0" selected>Adult</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
+                                                    
+                                                        <div class="submit-form">
+                                                            <button type="submit">Check Availability</button>
+                                                        </div>
+                                                    
+                                                </form>
+												</div>
+                                           
+						</div>
+					</div>
+					<!-- /banner -->
+
+					<!-- banner -->
+					<div class="banner banner-1">
+						<img src="{%static './img/banner21.jpg'%}" style="height:500px" alt="">
+						<div class="banner-caption">
+					
+						</div>
+					</div>
+					<!-- /banner -->
+
+					<!-- banner -->
+					<div class="banner banner-1">
+						<img src="{%static './img/banner1.jpg'%}" style="height:500px" alt="">
+						<div class="banner-caption">
+						
+						</div>
+					</div>
+					<!-- /banner -->
+				</div>
+				<!-- /home slick -->
+			</div>
+			<!-- /home wrap -->
+		{% comment %} </div> {% endcomment %}
+		<!-- /container -->
+	</div>
+	<!-- /HOME -->

@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block title %}Payment Status{% endblock%}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keyword }}{% endblock %}
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+
+{% block body %}
+<h2>Payment status regarding {{response.ORDERID}}</h2>
+{% if response.RESPCODE == '01' %}
+<h1>BOOKING SUCCESSFUL</h1>
+{% else %}
+<h1>BOOKING FAILED</h1>
+{% endif %}
+{%endblock%}

@@ -1,0 +1,114 @@
+{%extends 'base.html' %}
+ {%block title %}{{ room.title }} {% endblock%}
+{%block description %} {{ room.description }} {% endblock %}
+ {% block keywords%} {{ room.keyword }}{% endblock %} 
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{%block body%}
+<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!--  Product Details -->
+				<div class="product product-details clearfix">
+					<div class="col-md-6">
+						<div id="product-main-view">
+							<div class="product-view">
+								<img src="{{room.image.url}}" style="height:300px" alt="">
+							</div>
+                            {% for i in images %}
+                            <div class="product-view">
+								<img src="{{i.image.url}}" style="height:300px" alt="">
+							</div>
+                            {% endfor %}
+							
+							
+						</div>
+						<div id="product-view">
+							<div class="product-view">
+								<img src="{{room.image.url}}" style="height:100px" alt="">
+							</div>
+                        {% for i in images %}
+                        <div class="product-view">
+								<img src="{{i.image.url}}" style="height:100px" alt="">
+							</div>
+                        {% endfor %}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="product-body">
+							
+							<h2 class="product-name">{{room.name}}</h2>
+							<h3 class="product-price">Rs. {{room.price}} / Night<del class="product-old-price"></del></h3>
+							<div>
+								
+
+							</div>
+							{% comment %} <p><strong>Availability:</strong> In Stock</p> {% endcomment %}
+							<p><strong>{{room.significant_feature|safe}}</strong></p>
+							<p>{{room.detail|safe}}</p>
+							<div class="product-options">
+								<ul class="size-option">
+									<li><span class="text-uppercase">Size:</span></li>
+									<li class="active"><a href="#">{{room.size}} sq. m</a></li>
+					
+								</ul>
+								
+							</div>
+
+							<div class="product-btns">
+								<div class="qty-input">
+									<span class="text-uppercase"><strong>Max Adults:</strong> {{room.max_adult}}</span>
+									<span class="text-uppercase"><strong>Max Children:</strong> {{room.max_children}}</span>
+									{% comment %} <input class="input" type="number"> {% endcomment %}
+								</div>
+                                <br>
+								<a href="/bookings/guest_detail/{{room.id}}" class="primary-btn add-to-cart">Book Now</a>   
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="product-tab">
+							
+						
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="product-reviews">
+											
+
+
+											
+
+											
+											</div>
+										</div>
+										<div class="col-md-6">
+											
+							
+                 
+
+                    
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /Product Details -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+{%endblock%}

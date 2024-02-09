@@ -1,0 +1,84 @@
+{%extends 'base.html'%}
+{%block title %}{{ query}} results{% endblock%}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keyword }}{% endblock %}
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+
+{% block body %}
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">{{ query}} results</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				
+
+				<!-- MAIN -->
+				<div id="main" class="col-md-9">
+				
+
+					<!-- STORE -->
+					<div id="store">
+						<!-- row -->
+                        <div class="row">
+                        <div class="col-md-12">
+						<div class="order-summary clearfix">
+							<div class="section-title">
+								<h3 class="title">Product List</h3>
+							</div>
+                            {% if rooms %}
+							<table class="shopping-cart-table table">
+								   <tr>
+                                <th class="text-left">Room Name</th>
+                                <th class="text-left">Size </th>
+                                <th class="text-left">Price</th>
+                                {% comment %} <th class="text-left">Check-In </th>
+                                <th class="text-left">Check-Out </th> {% endcomment %}
+                           			 </tr>
+                                {% for rs in rooms %}
+                                <tr>
+                                    <td class="text-left">{{ rs.name}} <br>
+                                    <img src="{{rs.image.url}}" alt="" style="height: 50px">
+                                    </td>
+                                    <td class="text-left">{{ rs.size}} </td>
+                                    <td class="text-left">Rs. {{ rs.price}} </td>
+                                    {% comment %} <td class="text-left">{{ rs.check_in}} </td>
+                                    <td class="text-left">{{ rs.check_out}} </td> {% endcomment %}
+                                    <td class="text-left"><a class="primary-btn" href="/room/{{rs.id}}/{{ rs.slug }}"> Detail </a></td>
+                                </tr>
+                            {% endfor %}
+							</table>
+                            {% else %}
+                            <h3 class="text-center">No Rooms Available</h3>
+                            {% endif %}
+						
+						</div>
+
+					</div>  
+                        </div>
+						<!-- /row -->
+					</div>
+					<!-- /STORE -->
+
+					
+				</div>
+				<!-- /MAIN -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+{% endblock %}
